@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/styles/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-dark text-light justify-content-center ">
+            <h1>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbspWeather Dashboard</h1>
+          </nav>
+    </header>
+    <div class="content-container">
+        <form class="form-inline my-2 my-lg-0" id="search-form">
+            <h3>Search for a City</h3>
+        <div class="search-box">
+            
+            <input class="form-control mr-sm-2" type="search" placeholder="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><img id="search-icon" src="./assets/images/search.png">
+            </button>
+        </div>
+            <div class="list-group">
+                <button type="button" class="list-group-item list-group-item-action">Montigo</button>
+                <button type="button" class="list-group-item list-group-item-action">Gotham City</button>
+                <button type="button" class="list-group-item list-group-item-action">Huntsville</button>
+                <button type="button" class="list-group-item list-group-item-action">Fairview</button>
+                <button type="button" class="list-group-item list-group-item-action">Tatooine</button>
+                <button type="button" class="list-group-item list-group-item-action">Asgard</button>
+                <button type="button" class="list-group-item list-group-item-action">The Shire</button>
+                <button type="button" class="list-group-item list-group-item-action">Ogamar</button>
+            </div>
+        </form>
+        <div class="weather-display">
+            <div id="weather-stats">
+                <div class="card">
+                    <div class="card-body">
+                      This is some text within a card body.
+                    </div>
+                  </div>
+            </div>
+            <h3 class="forcast-title">5 Day Forcast</h3>
+            <div class="five-day-forcast">
+                <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Title</h5>
+                      <p class="card-text">Text</p>
+                    </div>
+                </div>
+                <!--Readability Break-->
+                <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Title</h5>
+                      <p class="card-text">Text</p>
+                    </div>
+                </div>
+                <!--Readability Break-->
+                <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Title</h5>
+                      <p class="card-text">Text</p>
+                    </div>
+                </div>
+                <!--Readability Break-->
+                <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Title</h5>
+                      <p class="card-text">Text</p>
+                    </div>
+                </div>
+                <!--Readability Break-->
+                <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Title</h5>
+                      <p class="card-text">Text</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

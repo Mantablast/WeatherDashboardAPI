@@ -1,0 +1,38 @@
+#search-icon {
+    width: 20px;
+    height: auto;
+}
+
+#search-form {
+    display: block;
+    width: 30vw;
+    background-color: rgb(235, 235, 235);
+    padding: 20px;
+    margin-right : 10px;
+    height: auto;
+}
+
+.content-container {
+    display: flex;
+}
+
+.search-box {
+    display: flex;
+    padding: 10px;
+}
+
+.five-day-forcast {
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.weather-display {
+    margin: 20px;
+    width: 100%;
+}
+
+.forcast-title {
+    margin-top: 10px;
+}
