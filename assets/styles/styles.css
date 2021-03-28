@@ -36,3 +36,11 @@
 .forcast-title {
     margin-top: 10px;
 }
+
+.hide {
+    display: none;
+}
+
+.un-hide {
+    visibility: visible;
+}

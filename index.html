@@ -19,7 +19,7 @@
             <h3>Search for a City</h3>
         <div class="search-box">
             
-            <input class="form-control mr-sm-2" type="search" placeholder="Search">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" id="cityInput">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><img id="search-icon" src="./assets/images/search.png">
             </button>
         </div>
@@ -38,48 +38,67 @@
             <div id="weather-stats">
                 <div class="card">
                     <div class="card-body">
-                      This is some text within a card body.
+                        <span id="feature-name">Name:</span>
+                        <span id="feature-date">Date:</span>
+                        <span>Icon</span>
+                        <div id="feature-temp">Temp:</div>
+                        <div id="feature-temp">Humidity:</div>
+                        <div id="feature-temp">Wind Speed:</div>
+                        <div id="feature-temp">UV Index:</div>
                     </div>
                   </div>
             </div>
             <h3 class="forcast-title">5 Day Forcast</h3>
             <div class="five-day-forcast">
                 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-                    <div class="card-body">
-                      <h5 class="card-title">Title</h5>
-                      <p class="card-text">Text</p>
+                    <div class="card-body" style="width: 8rem;">
+                        <div id="date-card-one">Date One</div>
+                        <div id="icon-one">Icon</div>
+                        <div id="temp-one">Temp:</div>
+                        <div id="humidity-one">Humidity:</div>
                     </div>
                 </div>
                 <!--Readability Break-->
                 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-                    <div class="card-body">
-                      <h5 class="card-title">Title</h5>
-                      <p class="card-text">Text</p>
+                    <div class="card-body" style="width: 8rem;">
+                        <div id="date-card-two">Date Two</div>
+                        <div id="icon-two">Icon</div>
+                        <div id="temp-two">Temp:</div>
+                        <div id="humidity-two">Humidity:</div>
                     </div>
                 </div>
                 <!--Readability Break-->
                 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-                    <div class="card-body">
-                      <h5 class="card-title">Title</h5>
-                      <p class="card-text">Text</p>
+                    <div class="card-body" style="width: 8rem;">
+                        <div id="date-card-three">Date Three</div>
+                        <div id="icon-three">Icon</div>
+                        <div id="temp-three">Temp:</div>
+                        <div id="humidity-three">Humidity:</div>
                     </div>
                 </div>
                 <!--Readability Break-->
                 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-                    <div class="card-body">
-                      <h5 class="card-title">Title</h5>
-                      <p class="card-text">Text</p>
+                    <div class="card-body" style="width: 8rem;">
+                        <div id="date-card-four">Date Four</div>
+                        <div id="icon-four">Icon</div>
+                        <div id="temp-four">Temp:</div>
+                        <div id="humidity-four">Humidity:</div>
                     </div>
                 </div>
                 <!--Readability Break-->
                 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-                    <div class="card-body">
-                      <h5 class="card-title">Title</h5>
-                      <p class="card-text">Text</p>
+                    <div class="card-body" style="width: 8rem;">
+                        <div id="date-card-five">Date Five</div>
+                        <div id="icon-five">Icon</div>
+                        <div id="temp-five">Temp:</div>
+                        <div id="humidity-five">Humidity:</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
