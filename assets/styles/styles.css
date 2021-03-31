@@ -44,3 +44,44 @@
 .un-hide {
     visibility: visible;
 }
+
+
+.green-safe {
+    display: flex;
+    background-color: greenyellow;
+    font-weight: bold;
+    padding:5px;
+    border: 1px solid black;
+    border-radius: 8px;
+    width: 150px;
+    justify-content: center;
+}
+
+.orange-warning {
+    background-color: rgb(255, 189, 47);
+    font-weight: bold;
+    padding:5px;
+    border: 1px solid black;
+    border-radius: 8px;
+    width: 150px;
+    justify-content: center;
+    display: flex;
+}
+
+.red-alert {
+    background-color: rgb(243, 93, 33);
+    font-weight: bold;
+    padding:5px;
+    border: 1px solid black;
+    border-radius: 8px;
+    width: 150px;
+    justify-content: center;
+    display: flex;
+}
+
+.grey-not-working {
+    background-color: grey;
+    text-decoration: hotpink;
+    width: 150px;
+    display: flex;
+}
