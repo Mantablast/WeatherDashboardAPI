@@ -94,6 +94,7 @@ var fetchUserCity = function(getCity) {
             var showFeatureUv = data.value;
             $("#feature-uv").html("UV Index : " + showFeatureUv);
             colorUv(Math.round(showFeatureUv));
+            console.log(showFeatureUv);
           });
         } else {
           alert("Error: " + response.statusText);
@@ -106,9 +107,9 @@ var fetchUserCity = function(getCity) {
   }
 
   function colorUv(showFeatureUv) {
-    // $("#feature-uv").removeClass("green-safe");
-    // $("#feature-uv").removeClass("orange-warning");
-    // $("#feature-uv").removeClass("red-alert");
+    $("#feature-uv").removeClass("green-safe");
+    $("#feature-uv").removeClass("orange-warning");
+    $("#feature-uv").removeClass("red-alert");
     console.log("you are in the UV color function");
     var featureUv = document.querySelector("#feature-uv");
     if(showFeatureUv <= 2) {
