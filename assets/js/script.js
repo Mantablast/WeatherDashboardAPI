@@ -35,7 +35,7 @@ var formSubmitHandler = function(event) {
     userCityTerm.textContent = "";
     // cityinputEl.value = "";
       
-      userCityTerm.textContent = getCity;
+      userCityTerm.textContent = getCity.charAt(0).toUpperCase() + getCity.slice(1);
       fetchUserCity(getCity);
     } else {
       alert("Please enter a valid city");
@@ -67,6 +67,7 @@ var fetchUserCity = function(getCity) {
             var cityLon = data.coord.lon;
             console.log(cityLon + cityLat);
             getFeatureUV(cityLat, cityLon);
+            getFiveDay(getCity);
           });
         } else {
           alert("Error: " + response.statusText);
@@ -101,9 +102,8 @@ var fetchUserCity = function(getCity) {
         }
       })
       .catch(function(error) {
-        alert("Unable to retrieve weather at this time");
+        alert("Unable to retrieve UV at this time");
       });
-      
   }
 
   function colorUv(showFeatureUv) {
@@ -115,7 +115,7 @@ var fetchUserCity = function(getCity) {
     if(showFeatureUv <= 2) {
       $(featureUv).addClass("green-safe");
     }
-    else if(showFeatureUv >= 3 || showFeatureUv <= 5) {
+    else if(showFeatureUv >= 3 && showFeatureUv <= 5) {
       $(featureUv).addClass("orange-warning");
     }
     else if(showFeatureUv >= 6) {
@@ -125,4 +125,55 @@ var fetchUserCity = function(getCity) {
       $("#feature-uv").addClass("grey-not-working");
     }
   }
-  userFormEl.addEventListener("submit", formSubmitHandler);
+
+function getFiveDay(getCity) {
+  var forcastApiUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + getCity + "&units=metric&appid=d54cfa2ed5bc0e68265280e781008c3e";
+  
+  // make a get request to url
+  fetch(forcastApiUrl)
+    .then(function(response) {
+
+      // if the request is working
+      if (response.ok) {
+        // console.log(response);
+        response.json().then(function(data) {
+          console.log(data.list[1].main.temp);
+          // var showFeatureHumidity = data.main.humidity;
+          // $("#feature-hum").html(showFeatureHumidity + "% Humidity");
+          var dayOneTemp= Math.round(data.list[1].main.temp);
+          $("#temp-one").html("Temp: " + dayOneTemp + "°C");
+          var dayOneHum= data.list[1].main.humidity;
+          $("#humidity-one").html("Humidity: " + dayOneHum + "%");
+          //Forcast Day Two
+          var dayTwoTemp= Math.round(data.list[2].main.temp);
+          $("#temp-two").html("Temp: " + dayTwoTemp + "°C");
+          var dayTwoHum= data.list[2].main.humidity;
+          $("#humidity-two").html("Humidity: " + dayTwoHum + "%");
+          //Forcast Day Three
+          var dayThreeTemp= Math.round(data.list[3].main.temp);
+          $("#temp-three").html("Temp: " + dayThreeTemp + "°C");
+          var dayThreeHum= data.list[3].main.humidity;
+          $("#humidity-three").html("Humidity: " + dayThreeHum + "%");
+          //Forcast Day Four
+          var dayFourTemp= Math.round(data.list[4].main.temp);
+          $("#temp-four").html("Temp: " + dayFourTemp + "°C");
+          var dayFourHum= data.list[4].main.humidity;
+          $("#humidity-four").html("Humidity: " + dayFourHum + "%");
+          //Forcast Day Five
+          var dayFiveTemp= Math.round(data.list[5].main.temp);
+          $("#temp-five").html("Temp: " + dayFiveTemp + "°C");
+          var dayFiveHum= data.list[5].main.humidity;
+          $("#humidity-five").html("Humidity: " + dayFiveHum + "%");
+        });
+      } else {
+        alert("Error: " + response.statusText);
+      }
+    })
+    .catch(function(error) {
+      alert("Unable to retrieve five day forcast at this time");
+    });
+        
+};
+
+
+userFormEl.addEventListener("submit", formSubmitHandler);
