@@ -145,28 +145,79 @@ function getFiveDay(getCity) {
           // $("#feature-hum").html(showFeatureHumidity + "% Humidity");
           var dayOneTemp= Math.round(data.list[1].main.temp);
           $("#temp-one").html("Temp: " + dayOneTemp + "°C");
+          var dayOneWind= data.list[1].wind.speed;
+          $("#wind-one").html("Wind: " + dayOneWind + "M/s");
           var dayOneHum= data.list[1].main.humidity;
           $("#humidity-one").html("Humidity: " + dayOneHum + "%");
+          var dayOneIcon = data.list[1].weather[0].icon;
+          console.log(dayOneIcon);
+          var imageOne = " ";
+          var imageOne = document.createElement('img')
+          var imgUrl = "http://openweathermap.org/img/wn/" + dayOneIcon + "@2x.png";
+          imageOne.src  = imgUrl;
+          document.querySelector('#icon-one').appendChild(imageOne);
+
+
           //Forcast Day Two
           var dayTwoTemp= Math.round(data.list[2].main.temp);
           $("#temp-two").html("Temp: " + dayTwoTemp + "°C");
+          var dayTwoWind= data.list[2].wind.speed;
+          $("#wind-two").html("Wind: " + dayTwoWind + "M/s");
           var dayTwoHum= data.list[2].main.humidity;
           $("#humidity-two").html("Humidity: " + dayTwoHum + "%");
+          var dayTwoIcon = data.list[2].weather[0].icon;
+          var imageTwo = " ";
+          var imageTwo = document.createElement('img')
+          var imgUrlTwo = "http://openweathermap.org/img/wn/" + dayTwoIcon + "@2x.png";
+          imageTwo.src  = imgUrlTwo;
+          document.querySelector('#icon-two').appendChild(imageTwo);
+
+
           //Forcast Day Three
           var dayThreeTemp= Math.round(data.list[3].main.temp);
           $("#temp-three").html("Temp: " + dayThreeTemp + "°C");
+          var dayThreeWind= data.list[3].wind.speed;
+          $("#wind-three").html("Wind: " + dayThreeWind + "M/s");
           var dayThreeHum= data.list[3].main.humidity;
           $("#humidity-three").html("Humidity: " + dayThreeHum + "%");
+          var dayThreeIcon = data.list[3].weather[0].icon;
+          var imageThree = " ";
+          var imageThree = document.createElement('img')
+          var imgUrlThree = "http://openweathermap.org/img/wn/" + dayThreeIcon + "@2x.png";
+          imageThree.src  = imgUrlThree;
+          document.querySelector('#icon-three').appendChild(imageThree);
+
+
           //Forcast Day Four
           var dayFourTemp= Math.round(data.list[4].main.temp);
           $("#temp-four").html("Temp: " + dayFourTemp + "°C");
+          var dayFourWind= data.list[4].wind.speed;
+          $("#wind-four").html("Wind: " + dayFourWind + "M/s");
           var dayFourHum= data.list[4].main.humidity;
           $("#humidity-four").html("Humidity: " + dayFourHum + "%");
+          var dayFourIcon = data.list[4].weather[0].icon;
+          var imageFour = " ";
+          var imageFour = document.createElement('img')
+          var imgUrlFour = "http://openweathermap.org/img/wn/" + dayFourIcon + "@2x.png";
+          imageFour.src  = imgUrlFour;
+          document.querySelector('#icon-four').appendChild(imageFour);
+
+
           //Forcast Day Five
           var dayFiveTemp= Math.round(data.list[5].main.temp);
           $("#temp-five").html("Temp: " + dayFiveTemp + "°C");
+          var dayFiveWind= data.list[5].wind.speed;
+          $("#wind-five").html("Wind: " + dayFiveWind + "M/s");
           var dayFiveHum= data.list[5].main.humidity;
           $("#humidity-five").html("Humidity: " + dayFiveHum + "%");
+          var dayFiveIcon = data.list[5].weather[0].icon;
+          var imageFive = " ";
+          var imageFive = document.createElement('img')
+          var imgUrlFive = "http://openweathermap.org/img/wn/" + dayFiveIcon + "@2x.png";
+          imageFive.src  = imgUrlFive;
+          document.querySelector('#icon-five').appendChild(imageFive);
+
+
         });
       } else {
         alert("Error: " + response.statusText);
@@ -178,12 +229,15 @@ function getFiveDay(getCity) {
 };
 
 function getFeatureIcon(featureIconParam) {
-  const image = document.createElement('img')
-  console.log(featureIconParam);
+  var image = " ";
+  var image = document.createElement('img')
+  // console.log(featureIconParam);
   var imgUrl = "http://openweathermap.org/img/wn/" + featureIconParam + "@2x.png";
+  console.log(imgUrl);
   image.src  = imgUrl;
   document.querySelector('#feature-icon').appendChild(image)
 }
+
 
 
 userFormEl.addEventListener("submit", formSubmitHandler);
