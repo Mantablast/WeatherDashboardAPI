@@ -56,7 +56,7 @@ var fetchUserCity = function(getCity) {
         if (response.ok) {
           // console.log(response);
           response.json().then(function(data) {
-            console.log(data.main);
+            // console.log(data.main);
             var showFeatureHumidity = data.main.humidity;
             $("#feature-hum").html(showFeatureHumidity + "% Humidity");
             var showFeatureTemp = data.main.temp;
@@ -65,9 +65,12 @@ var fetchUserCity = function(getCity) {
             $("#feature-ws").html(showFeatureWindSpeed + "M/s");
             var cityLat = data.coord.lat;
             var cityLon = data.coord.lon;
-            console.log(cityLon + cityLat);
+            // console.log(cityLon + cityLat);
             getFeatureUV(cityLat, cityLon);
             getFiveDay(getCity);
+            var featureIconParam = data.weather[0].icon;
+            // $("#feature-icon").html(featureIconParam + "°C");
+            getFeatureIcon(featureIconParam);
           });
         } else {
           alert("Error: " + response.statusText);
@@ -83,7 +86,7 @@ var fetchUserCity = function(getCity) {
   var getFeatureUV = function(cityLat, cityLon) {
     // format the github api url
     var uvApiUrl = "http://api.openweathermap.org/data/2.5/uvi?lat=" + cityLat + "&lon=" + cityLon + "&appid=d54cfa2ed5bc0e68265280e781008c3e";
-    console.log("you are in the UV function");
+    // console.log("you are in the UV function");
     fetch(uvApiUrl)
       .then(function(response) {
 
@@ -171,9 +174,16 @@ function getFiveDay(getCity) {
     })
     .catch(function(error) {
       alert("Unable to retrieve five day forcast at this time");
-    });
-        
+    });     
 };
+
+function getFeatureIcon(featureIconParam) {
+  const image = document.createElement('img')
+  console.log(featureIconParam);
+  var imgUrl = "http://openweathermap.org/img/wn/" + featureIconParam + "@2x.png";
+  image.src  = imgUrl;
+  document.querySelector('#feature-icon').appendChild(image)
+}
 
 
 userFormEl.addEventListener("submit", formSubmitHandler);

@@ -85,3 +85,7 @@
     width: 150px;
     display: flex;
 }
+
+#feature-icon {
+    content:url("./assets/images/001-cloudyday.png");
+}
