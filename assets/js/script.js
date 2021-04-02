@@ -13,7 +13,8 @@ $("#date-card-five").html(shortDateFive);
 var userFormEl = document.querySelector("#search-form");
 var userCityTerm = document.querySelector("#feature-name");
 var cityInputEl = document.querySelector("#cityInput");
-var cityArray = JSON.parse(localStorage.getItem("savedCities"));
+var cityArray = JSON.parse(localStorage.getItem("savedCities")) || [];
+
 //logging stats into fields to respective day
 
 
