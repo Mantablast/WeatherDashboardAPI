@@ -39,11 +39,7 @@ var formSubmitHandler = function(event) {
     }
   };
 
-function loadPreviousSearches() {
-  if($("li").val() != getCity) {
-    var renderCity = localStorage.getItem("li" + i);
-  }
-}
+
 
 //Grab the weather data from open weather API 
 var fetchUserCity = function(getCity) {
@@ -99,6 +95,11 @@ function cityLocalStorage(getCity){
   })
 }
 
+function loadPreviousSearches() {
+  if($("li").val() != getCity) {
+    var renderCity = localStorage.getItem("li" + i);
+  }
+}
   
   var getFeatureUV = function(cityLat, cityLon) {
     // format the github api url
