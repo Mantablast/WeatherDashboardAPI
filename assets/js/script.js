@@ -99,6 +99,7 @@ function loadPreviousSearches() {
   var retrievedCities = localStorage.getItem("savedCities");
   var parsedCities = JSON.parse(retrievedCities);
   console.log(parsedCities);
+  $( ".bullet" ).append( parsedCities );
   // parsedCities.push(getCity);
 
 }
