@@ -13,6 +13,7 @@ $("#date-card-five").html(shortDateFive);
 var userFormEl = document.querySelector("#search-form");
 var userCityTerm = document.querySelector("#feature-name");
 var cityInputEl = document.querySelector("#cityInput");
+var cityArray = [];
 //logging stats into fields to respective day
 
 
@@ -84,21 +85,20 @@ var fetchUserCity = function(getCity) {
 //saving the typed city to local storage
 function cityLocalStorage(getCity){
   //saving to variable if it hasn't already been
-  $( "li" ).each(function() {
-    if ($("li").val() == getCity) {
-      console.log("no change");
+  if(getCity != cityArray) {
+    localStorage.setItem("savedCities", JSON.stringify(getCity));
+  } else {
+    console.log("city already added");
   }
-  else if($("li").val() != getCity) {
-      var addCity = getCity
-      localStorage.setItem('li' + localStorage.length, addCity);
-  }
-  })
-}
+};
+
 
 function loadPreviousSearches() {
-  if($("li").val() != getCity) {
-    var renderCity = localStorage.getItem("li" + i);
-  }
+  var retrievedCities = localStorage.getItem("savedCities");
+  var parsedCities = JSON.parse(retrievedCities);
+  console.log(parsedCities);
+  // parsedCities.push(getCity);
+
 }
   
   var getFeatureUV = function(cityLat, cityLon) {
@@ -259,4 +259,4 @@ function getFeatureIcon(featureIconParam) {
 
 
 userFormEl.addEventListener("submit", formSubmitHandler);
-userFormEl.addEventListener("submit", loadPreviousSearches);
+window.addEventListener("load", loadPreviousSearches);
