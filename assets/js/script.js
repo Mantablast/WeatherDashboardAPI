@@ -14,10 +14,6 @@ var userFormEl = document.querySelector("#search-form");
 var userCityTerm = document.querySelector("#feature-name");
 var cityInputEl = document.querySelector("#cityInput");
 //logging stats into fields to respective day
-// var featureTemp = document.querySelector("#feature-temp");
-// var featureHum = document.querySelector("#feature-hum");
-// var featureWindSpeed = document.querySelector("#feature-ws");
-
 
 
 
@@ -43,7 +39,13 @@ var formSubmitHandler = function(event) {
     }
   };
 
-//Grab the weather data from open weather API **format this function for current project
+function loadPreviousSearches() {
+  if($("li").val() != getCity) {
+    var renderCity = localStorage.getItem("li" + i);
+  }
+}
+
+//Grab the weather data from open weather API 
 var fetchUserCity = function(getCity) {
     // format the github api url
     var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + getCity + "&units=metric&appid=d54cfa2ed5bc0e68265280e781008c3e";
@@ -69,6 +71,7 @@ var fetchUserCity = function(getCity) {
             getFeatureUV(cityLat, cityLon);
             getFiveDay(getCity);
             var featureIconParam = data.weather[0].icon;
+            cityLocalStorage(getCity);
             // $("#feature-icon").html(featureIconParam + "°C");
             getFeatureIcon(featureIconParam);
           });
@@ -82,7 +85,21 @@ var fetchUserCity = function(getCity) {
           
   };
 
+//saving the typed city to local storage
+function cityLocalStorage(getCity){
+  //saving to variable if it hasn't already been
+  $( "li" ).each(function() {
+    if ($("li").val() == getCity) {
+      console.log("no change");
+  }
+  else if($("li").val() != getCity) {
+      var addCity = getCity
+      localStorage.setItem('li' + localStorage.length, addCity);
+  }
+  })
+}
 
+  
   var getFeatureUV = function(cityLat, cityLon) {
     // format the github api url
     var uvApiUrl = "http://api.openweathermap.org/data/2.5/uvi?lat=" + cityLat + "&lon=" + cityLon + "&appid=d54cfa2ed5bc0e68265280e781008c3e";
@@ -241,3 +258,4 @@ function getFeatureIcon(featureIconParam) {
 
 
 userFormEl.addEventListener("submit", formSubmitHandler);
+userFormEl.addEventListener("submit", loadPreviousSearches);

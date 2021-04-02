@@ -12,6 +12,12 @@
     height: auto;
 }
 
+#feature-icon img {
+    
+    background-color: rgb(129, 128, 128);
+    padding: 10px;
+    border-radius: 10px;
+}
 .content-container {
     display: flex;
 }
@@ -31,6 +37,7 @@
 .weather-display {
     margin: 20px;
     width: 100%;
+    /* background-color: rgb(9, 43, 53); */
 }
 
 .forcast-title {
@@ -45,6 +52,9 @@
     visibility: visible;
 }
 
+/* #weather-stats {
+    background-color: rgb(4, 45, 53);
+} */
 
 .green-safe {
     display: flex;
