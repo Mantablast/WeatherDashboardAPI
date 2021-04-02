@@ -17,8 +17,6 @@ var cityArray = JSON.parse(localStorage.getItem("savedCities")) || [];
 
 //logging stats into fields to respective day
 
-
-
 //start function to gather user city to be applied to fetch
 var formSubmitHandler = function(event) {
     console.log("At least you got to the submit function");
@@ -40,8 +38,6 @@ var formSubmitHandler = function(event) {
       userCityTerm.textContent = "No city found.";
     }
   };
-
-
 
 //Grab the weather data from open weather API 
 var fetchUserCity = function(getCity) {
@@ -79,8 +75,7 @@ var fetchUserCity = function(getCity) {
       })
       .catch(function(error) {
         alert("Unable to retrieve weather at this time");
-      });
-          
+      })    
   };
 
 //saving the typed city to local storage
@@ -93,16 +88,34 @@ function cityLocalStorage(getCity){
     console.log("city already added");
   }
 };
-// if(cityArray.indexOf(getCity) == -1)
 
 function loadPreviousSearches() {
+  
   var retrievedCities = localStorage.getItem("savedCities");
   var parsedCities = JSON.parse(retrievedCities);
-  console.log(parsedCities);
-  $( ".bullet" ).append( parsedCities );
-  // parsedCities.push(getCity);
+  var ulParent = $(".list-group ul");
 
-}
+for (let city of parsedCities) {
+    // Create a <button> element
+    var elBtn = $("<button>")
+        .addClass("list-group-item list-group-item-action bullet")
+        .attr("type", "button")
+        .text(city);
+
+    // Create  <li> element and append the <button> element to it
+    var elListItem = $("<li>");
+    elListItem.append(elBtn);
+
+    // Append our <li> element to the <ul> parent (declared above)
+    ulParent.append(elListItem);
+  }
+};
+
+//Searching a previous city by button
+$('<button>').on('click', function() {
+  $(this).val() = getCity; 
+  fetchUserCity(getCity);
+});
   
   var getFeatureUV = function(cityLat, cityLon) {
     // format the github api url
