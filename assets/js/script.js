@@ -85,13 +85,14 @@ var fetchUserCity = function(getCity) {
 //saving the typed city to local storage
 function cityLocalStorage(getCity){
   //saving to variable if it hasn't already been
-  if(cityArray.indexOf(getCity) == -1) {
-    localStorage.setItem("savedCities", JSON.stringify(getCity));
+  if (cityArray.indexOf(getCity) == -1) {
+    cityArray.push(getCity)
+    localStorage.setItem("savedCities", JSON.stringify(cityArray));
   } else {
     console.log("city already added");
   }
 };
-
+// if(cityArray.indexOf(getCity) == -1)
 
 function loadPreviousSearches() {
   var retrievedCities = localStorage.getItem("savedCities");
