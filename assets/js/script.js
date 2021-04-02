@@ -13,7 +13,7 @@ $("#date-card-five").html(shortDateFive);
 var userFormEl = document.querySelector("#search-form");
 var userCityTerm = document.querySelector("#feature-name");
 var cityInputEl = document.querySelector("#cityInput");
-var cityArray = [];
+var cityArray = JSON.parse(localStorage.getItem("savedCities"));
 //logging stats into fields to respective day
 
 
@@ -85,7 +85,7 @@ var fetchUserCity = function(getCity) {
 //saving the typed city to local storage
 function cityLocalStorage(getCity){
   //saving to variable if it hasn't already been
-  if(getCity != cityArray) {
+  if(cityArray.indexOf(getCity) == -1) {
     localStorage.setItem("savedCities", JSON.stringify(getCity));
   } else {
     console.log("city already added");
