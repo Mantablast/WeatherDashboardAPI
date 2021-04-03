@@ -110,7 +110,7 @@ for (let city of parsedCities) {
 //UV index load
   var getFeatureUV = function(cityLat, cityLon) {
     // format the github api url
-    var uvApiUrl = "api.openweathermap.org/data/2.5/uvi?lat=" + cityLat + "&lon=" + cityLon + "&appid=d54cfa2ed5bc0e68265280e781008c3e";
+    var uvApiUrl = "https://api.openweathermap.org/data/2.5/uvi?lat=" + cityLat + "&lon=" + cityLon + "&appid=d54cfa2ed5bc0e68265280e781008c3e";
     // console.log("you are in the UV function");
     fetch(uvApiUrl)
       .then(function(response) {
@@ -156,7 +156,7 @@ for (let city of parsedCities) {
   }
 
 function getFiveDay(getCity) {
-  var forcastApiUrl = "api.openweathermap.org/data/2.5/forecast?q=" + getCity + "&units=metric&appid=d54cfa2ed5bc0e68265280e781008c3e";
+  var forcastApiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + getCity + "&units=metric&appid=d54cfa2ed5bc0e68265280e781008c3e";
   
   // make a get request to url
   fetch(forcastApiUrl)
