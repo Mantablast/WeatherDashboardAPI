@@ -1,7 +1,7 @@
 # Weather Dashboard API
 
 ## Purpose
-A website that displays the weather for a user search city.
+A website that displays the weather for a user searched city.
 
 ## Built With
 * HTML
