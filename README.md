@@ -13,6 +13,7 @@ A website that displays the weather for a user search city.
 
 ## Website
 https://missaimeejay.github.io/WeatherDashboardAPI/
+Repository URL : https://github.com/MissAimeeJay/WeatherDashboardAPI
 
 ## Contribution
 Made with ❤️ by Trilogy, openWeatherAPI & Aimee Jesso
