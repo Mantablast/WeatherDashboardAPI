@@ -110,7 +110,7 @@ for (let city of parsedCities) {
 //UV index load
   var getFeatureUV = function(cityLat, cityLon) {
     // format the github api url
-    var uvApiUrl = "http://api.openweathermap.org/data/2.5/uvi?lat=" + cityLat + "&lon=" + cityLon + "&appid=d54cfa2ed5bc0e68265280e781008c3e";
+    var uvApiUrl = "https://api.openweathermap.org/data/2.5/uvi?lat=" + cityLat + "&lon=" + cityLon + "&appid=d54cfa2ed5bc0e68265280e781008c3e";
     // console.log("you are in the UV function");
     fetch(uvApiUrl)
       .then(function(response) {
@@ -156,7 +156,7 @@ for (let city of parsedCities) {
   }
 
 function getFiveDay(getCity) {
-  var forcastApiUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + getCity + "&units=metric&appid=d54cfa2ed5bc0e68265280e781008c3e";
+  var forcastApiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + getCity + "&units=metric&appid=d54cfa2ed5bc0e68265280e781008c3e";
   
   // make a get request to url
   fetch(forcastApiUrl)
@@ -179,7 +179,7 @@ function getFiveDay(getCity) {
           console.log(dayOneIcon);
           var imageOne = " ";
           var imageOne = document.createElement('img')
-          var imgUrl = "http://openweathermap.org/img/wn/" + dayOneIcon + "@2x.png";
+          var imgUrl = "https://openweathermap.org/img/wn/" + dayOneIcon + "@2x.png";
           imageOne.src  = imgUrl;
           document.querySelector('#icon-one').appendChild(imageOne);
 
@@ -194,7 +194,7 @@ function getFiveDay(getCity) {
           var dayTwoIcon = data.list[2].weather[0].icon;
           var imageTwo = " ";
           var imageTwo = document.createElement('img')
-          var imgUrlTwo = "http://openweathermap.org/img/wn/" + dayTwoIcon + "@2x.png";
+          var imgUrlTwo = "https://openweathermap.org/img/wn/" + dayTwoIcon + "@2x.png";
           imageTwo.src  = imgUrlTwo;
           document.querySelector('#icon-two').appendChild(imageTwo);
 
@@ -209,7 +209,7 @@ function getFiveDay(getCity) {
           var dayThreeIcon = data.list[3].weather[0].icon;
           var imageThree = " ";
           var imageThree = document.createElement('img')
-          var imgUrlThree = "http://openweathermap.org/img/wn/" + dayThreeIcon + "@2x.png";
+          var imgUrlThree = "https://openweathermap.org/img/wn/" + dayThreeIcon + "@2x.png";
           imageThree.src  = imgUrlThree;
           document.querySelector('#icon-three').appendChild(imageThree);
 
@@ -224,7 +224,7 @@ function getFiveDay(getCity) {
           var dayFourIcon = data.list[4].weather[0].icon;
           var imageFour = " ";
           var imageFour = document.createElement('img')
-          var imgUrlFour = "http://openweathermap.org/img/wn/" + dayFourIcon + "@2x.png";
+          var imgUrlFour = "https://openweathermap.org/img/wn/" + dayFourIcon + "@2x.png";
           imageFour.src  = imgUrlFour;
           document.querySelector('#icon-four').appendChild(imageFour);
 
@@ -239,7 +239,7 @@ function getFiveDay(getCity) {
           var dayFiveIcon = data.list[5].weather[0].icon;
           var imageFive = " ";
           var imageFive = document.createElement('img')
-          var imgUrlFive = "http://openweathermap.org/img/wn/" + dayFiveIcon + "@2x.png";
+          var imgUrlFive = "https://openweathermap.org/img/wn/" + dayFiveIcon + "@2x.png";
           imageFive.src  = imgUrlFive;
           document.querySelector('#icon-five').appendChild(imageFive);
 
@@ -258,7 +258,7 @@ function getFeatureIcon(featureIconParam) {
   var image = " ";
   var image = document.createElement('img')
   // console.log(featureIconParam);
-  var imgUrl = "http://openweathermap.org/img/wn/" + featureIconParam + "@2x.png";
+  var imgUrl = "https://openweathermap.org/img/wn/" + featureIconParam + "@2x.png";
   console.log(imgUrl);
   image.src  = imgUrl;
   document.querySelector('#feature-icon').appendChild(image)
