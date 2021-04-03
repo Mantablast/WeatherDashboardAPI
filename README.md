@@ -12,7 +12,7 @@ A website that displays the weather for a user search city.
 * Moment JS
 
 ## Website
-https://missaimeejay.github.io/WorkDaySchedulerChallenge/
+https://missaimeejay.github.io/WeatherDashboardAPI/
 
 ## Contribution
 Made with ❤️ by Trilogy, openWeatherAPI & Aimee Jesso
