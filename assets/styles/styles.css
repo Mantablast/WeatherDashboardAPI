@@ -10,6 +10,7 @@
     padding: 20px;
     margin-right : 10px;
     height: auto;
+    flex-wrap:wrap;
 }
 #feature-name {
     font-size: 40px;
