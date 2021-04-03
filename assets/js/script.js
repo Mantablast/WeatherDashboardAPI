@@ -66,8 +66,8 @@ var fetchUserCity = function(getCity) {
             getFiveDay(getCity);
             var featureIconParam = data.weather[0].icon;
             
-            // $("#feature-icon").html(featureIconParam + "°C");
             getFeatureIcon(featureIconParam);
+            cityLocalStorage(getCity);
           });
         } else {
           alert("Error: " + response.statusText);
@@ -102,12 +102,8 @@ for (let city of parsedCities) {
         .attr("type", "button")
         .text(city);
 
-    // Create  <li> element and append the <button> element to it
-    var elListItem = $("<li>");
-    elListItem.append(elBtn);
-
     // Append our <li> element to the <ul> parent (declared above)
-    ulParent.append(elListItem);
+    ulParent.append(elBtn);
   }
 };
 
@@ -122,7 +118,7 @@ for (let city of parsedCities) {
         // if the request is working
         if (response.ok) {
           // console.log(response);
-          response.json().then(function(data) {
+            response.json().then(function(data) {
             console.log(data);
             var showFeatureUv = data.value;
             $("#feature-uv").html("UV Index : " + showFeatureUv);
@@ -138,6 +134,7 @@ for (let city of parsedCities) {
       });
   }
 
+  //style the UV
   function colorUv(showFeatureUv) {
     $("#feature-uv").removeClass("green-safe");
     $("#feature-uv").removeClass("orange-warning");
@@ -267,21 +264,22 @@ function getFeatureIcon(featureIconParam) {
   document.querySelector('#feature-icon').appendChild(image)
 }
 
-//Searching a previous city by button
-// $('<li>').on('click', function(event) {
-//   console.log("hello")
-//   console.log(event.target);
-//   $(this).val() = getCity; 
-//   fetchUserCity(getCity);
-// });
-
-$(".bullet").on('click', function(event, getCity) { 
+//Clicking previous search history
+$('#prev-searches').on('click', 'li', function(event){
   event.preventDefault();
   console.log("hello");
-  $(this).text = getCity; 
+  getCity = $(this).text(); 
   console.log(event.target);
   console.log(getCity);
+  //put the city name in the display
+  userCityTerm.textContent = "";
+  userCityTerm.textContent = getCity.charAt(0).toUpperCase() + getCity.slice(1);
   fetchUserCity(getCity);
+});
+
+//Clearing out previous city data, ideally this would be upgraded later to be done on new search
+$('#clear-page').click(function() {
+  location.reload();
 });
 
 userFormEl.addEventListener("submit", formSubmitHandler);

@@ -11,7 +11,10 @@
     margin-right : 10px;
     height: auto;
 }
-
+#feature-name {
+    font-size: 40px;
+    color: blue;
+}
 #feature-icon img {
     
     background-color: rgb(129, 128, 128);
@@ -44,17 +47,19 @@
     margin-top: 10px;
 }
 
-.hide {
-    display: none;
+#feature-temp {
+    color:rgb(64, 111, 112);
 }
 
-.un-hide {
-    visibility: visible;
+#feature-hum {
+    color:rgb(46, 138, 87);
 }
 
-/* #weather-stats {
-    background-color: rgb(4, 45, 53);
-} */
+#feature-ws {
+    color: darkslateblue;
+}
+
+
 
 .green-safe {
     display: flex;
@@ -103,4 +108,10 @@
 
 .bullet {
     text-decoration: none;
+}
+
+#clear-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
