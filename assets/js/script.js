@@ -65,7 +65,7 @@ var fetchUserCity = function(getCity) {
             getFeatureUV(cityLat, cityLon);
             getFiveDay(getCity);
             var featureIconParam = data.weather[0].icon;
-            cityLocalStorage(getCity);
+            
             // $("#feature-icon").html(featureIconParam + "°C");
             getFeatureIcon(featureIconParam);
           });
@@ -94,10 +94,10 @@ function loadPreviousSearches() {
   var retrievedCities = localStorage.getItem("savedCities");
   var parsedCities = JSON.parse(retrievedCities);
   var ulParent = $(".list-group ul");
-
+  
 for (let city of parsedCities) {
     // Create a <button> element
-    var elBtn = $("<button>")
+    var elBtn = $("<li>")
         .addClass("list-group-item list-group-item-action bullet")
         .attr("type", "button")
         .text(city);
@@ -111,12 +111,7 @@ for (let city of parsedCities) {
   }
 };
 
-//Searching a previous city by button
-$('<button>').on('click', function() {
-  $(this).val() = getCity; 
-  fetchUserCity(getCity);
-});
-  
+//UV index load
   var getFeatureUV = function(cityLat, cityLon) {
     // format the github api url
     var uvApiUrl = "http://api.openweathermap.org/data/2.5/uvi?lat=" + cityLat + "&lon=" + cityLon + "&appid=d54cfa2ed5bc0e68265280e781008c3e";
@@ -272,7 +267,22 @@ function getFeatureIcon(featureIconParam) {
   document.querySelector('#feature-icon').appendChild(image)
 }
 
+//Searching a previous city by button
+// $('<li>').on('click', function(event) {
+//   console.log("hello")
+//   console.log(event.target);
+//   $(this).val() = getCity; 
+//   fetchUserCity(getCity);
+// });
 
+$(".bullet").on('click', function(event, getCity) { 
+  event.preventDefault();
+  console.log("hello");
+  $(this).text = getCity; 
+  console.log(event.target);
+  console.log(getCity);
+  fetchUserCity(getCity);
+});
 
 userFormEl.addEventListener("submit", formSubmitHandler);
 window.addEventListener("load", loadPreviousSearches);
